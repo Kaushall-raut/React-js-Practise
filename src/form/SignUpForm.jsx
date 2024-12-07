@@ -6,17 +6,43 @@ export const SignUpForm = () => {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
-  // switch ( ) {
-  //   case value:
 
-  //     break;
+  const handleFormData = (event) => {
+    const { name, value } = event.target;
+    console.log(name);
 
-  //   default:
-  //     break;
-  // }
+    switch (name) {
+      case "fname":
+        setfName(value);
+        break;
+
+      case "lname":
+        setlName(value);
+        break;
+
+      case "contact":
+        setPhone(value);
+        break;
+
+      case "email":
+        setEmail(value);
+        break;
+
+      case "city":
+        setCity(value);
+        break;
+    }
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(fName, lName, phone, city, email);
+  };
   return (
-    <div className="border flex justify-center items-center h-screen w-full">
-      <div className="border w-96 h-auto flex justify-center p-3 shadow-lg flex-col shadow-cyan-700">
+    <div className=" flex justify-center items-center h-screen w-full">
+      <form
+        className="border w-96 h-auto flex justify-center p-3 shadow-lg flex-col shadow-cyan-700"
+        onSubmit={handleSubmit}
+      >
         <h1 className="text-blue-700 text-5xl font-bold my-1 ">Sign UP </h1>
         <span>
           <p className="font-extralight font-thin text-neutral-400">
@@ -32,6 +58,7 @@ export const SignUpForm = () => {
           value={fName}
           placeholder="Enter First Name"
           className="p-1 rounded-md bg-slate-200 "
+          onChange={handleFormData}
         />
 
         <label htmlFor="lname">Last Name:</label>
@@ -42,6 +69,7 @@ export const SignUpForm = () => {
           value={lName}
           placeholder="Enter Last Name"
           className="p-1 rounded-md bg-slate-200 "
+          onChange={handleFormData}
         />
 
         <label htmlFor="contact">Phone No:</label>
@@ -52,6 +80,7 @@ export const SignUpForm = () => {
           value={phone}
           placeholder="Enter your contact number"
           className="p-1 rounded-md bg-slate-200 "
+          onChange={handleFormData}
         />
 
         <label htmlFor="email">Email:</label>
@@ -62,6 +91,7 @@ export const SignUpForm = () => {
           value={email}
           placeholder="Enter your email"
           className="p-1 rounded-md bg-slate-200 "
+          onChange={handleFormData}
         />
 
         <label htmlFor="city">City Name:</label>
@@ -72,6 +102,7 @@ export const SignUpForm = () => {
           value={city}
           placeholder="Enter your  city"
           className="p-1 rounded-md bg-slate-200 "
+          onChange={handleFormData}
         />
         <span>
           <p>By creating an account you agree to our </p>
@@ -80,12 +111,12 @@ export const SignUpForm = () => {
           </a>
         </span>
         <button
-          type="button"
+          type="submit"
           class="btn btn-outline-primary m-0 my-3 text-slate-900  text-2xl font-medium w-full"
         >
           Sign Up
         </button>
-      </div>
+      </form>
     </div>
   );
 };
