@@ -1,41 +1,22 @@
 import { useState } from "react";
 // !This is the perfect way to handle form data
-const handleFormData = () => {
-  const [fName, setfName] = useState("");
-  const [lName, setlName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [city, setCity] = useState("");
+const HandleFormData = () => {
+  const [userData, setUser] = useState({
+    fname: "",
+    lname: "",
+    email: "",
+    phone: "",
+    city: "",
+  });
 
   const handleFormData = (event) => {
     const { name, value } = event.target;
-    console.log(name);
-
-    switch (name) {
-      case "fname":
-        setfName(value);
-        break;
-
-      case "lname":
-        setlName(value);
-        break;
-
-      case "contact":
-        setPhone(value);
-        break;
-
-      case "email":
-        setEmail(value);
-        break;
-
-      case "city":
-        setCity(value);
-        break;
-    }
+    // console.log(name);
+    setUser((prev) => ({ ...prev, [name]: value }));
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(fName, lName, phone, city, email);
+    console.log(userData);
   };
   return (
     <div className=" flex justify-center items-center h-screen w-full">
@@ -55,7 +36,7 @@ const handleFormData = () => {
           type="text"
           name="fname"
           id="fname"
-          value={fName}
+          value={userData.fName}
           placeholder="Enter First Name"
           className="p-1 rounded-md bg-slate-200 "
           onChange={handleFormData}
@@ -66,7 +47,7 @@ const handleFormData = () => {
           type="text"
           name="lname"
           id="lname"
-          value={lName}
+          value={userData.lName}
           placeholder="Enter Last Name"
           className="p-1 rounded-md bg-slate-200 "
           onChange={handleFormData}
@@ -75,9 +56,9 @@ const handleFormData = () => {
         <label htmlFor="contact">Phone No:</label>
         <input
           type="number"
-          name="contact"
+          name="phone"
           id="phone"
-          value={phone}
+          value={userData.phone}
           placeholder="Enter your contact number"
           className="p-1 rounded-md bg-slate-200 "
           onChange={handleFormData}
@@ -88,7 +69,7 @@ const handleFormData = () => {
           type="email"
           name="email"
           id="email"
-          value={email}
+          value={userData.email}
           placeholder="Enter your email"
           className="p-1 rounded-md bg-slate-200 "
           onChange={handleFormData}
@@ -99,7 +80,7 @@ const handleFormData = () => {
           type="text"
           name="city"
           id="city"
-          value={city}
+          value={userData.city}
           placeholder="Enter your  city"
           className="p-1 rounded-md bg-slate-200 "
           onChange={handleFormData}
