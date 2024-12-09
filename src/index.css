@@ -1,23 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-*{
-  margin: 5px;
+* {
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
 }
-body{
+body {
   height: 100vh;
   width: 100%;
 }
-button{
+button {
   background-color: aqua;
   border-radius: 10px;
   width: 9rem;
   height: 2rem;
   margin: 2rem;
 }
-button:hover{
-  border:2px solid black;
+button:hover {
+  border: 2px solid black;
 }
-input:hover{
-  border:2px solid black;
+input:hover {
+  border: 2px solid black;
 }
