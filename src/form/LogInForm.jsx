@@ -45,7 +45,7 @@ export const LogInForm = () => {
 
         <button
           type="submit"
-          class="btn btn-outline-primary m-0 my-3 text-slate-900  text-2xl font-medium w-full"
+          className="btn btn-outline-primary m-0 my-3 text-slate-900  text-2xl font-medium w-full"
         >
           Log In
         </button>
