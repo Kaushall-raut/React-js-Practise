@@ -1,10 +1,16 @@
+import { useState } from "react";
+
 export const ContactForm = () => {
-  const handleChange = () => {
-    console.log("hello");
+  const [user, setUser] = useState({ userName: "", pass: "", feedback: "" });
+  const handleChange = (e) => {
+    // console.log("hello");
+    const { name, value } = e.target;
+    setUser((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = () => {
-    console.log("world");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(user);
   };
 
   return (
@@ -39,9 +45,8 @@ export const ContactForm = () => {
 
         <label htmlFor="feedback"> FeedBack:</label>
         <textarea
-          type="password"
-          name="pass"
-          id="pass"
+          name="feedback"
+          id="feeedback"
           onChange={handleChange}
           placeholder="provide your feedback"
           rows="4"
